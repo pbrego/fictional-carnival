@@ -16,6 +16,9 @@
     ]
   },
   "scripts": {
+    "build": "lerna run build",
+    "start": "lerna run start",
+    "build:app": "lerna run --scope create-react-app build",
     "clean": "yarn rimraf ./**/node_modules"
   },
   "devDependencies": {
