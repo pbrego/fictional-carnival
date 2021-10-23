@@ -2,7 +2,6 @@ version: 2.1
 
 orbs:
   node: circleci/node@4.7.0
-  heroku: circleci/heroku@0.0.10
 
 jobs:
   build:
@@ -18,20 +17,8 @@ jobs:
           app-dir: .
           pkg-manager: yarn
           with-cache: false
-      - run:
-          name: Build app
-          command: yarn build
 
 workflows:
-  node_build:
+  build-workflow:
     jobs:
       - build
-  heroku_deploy:
-    jobs:
-      - build
-      - heroku/deploy-via-git:
-          requires:
-            - build
-          filters:
-            branches:
-              only: sequential-branch-filter
