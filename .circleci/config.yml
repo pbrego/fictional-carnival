@@ -4,18 +4,18 @@ orbs:
   node: circleci/node@4.7.0
 
 jobs:
-  install:
+  build:
     docker:
-      - image: cimg/node:17.0.1
+      - image: docker
     steps:
-      - node/install:
-          install-npm: false
-          install-yarn: true
-      - node/install-packages:
-          app-dir: .
-          pkg-manager: yarn
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run: docker image ls
+      - run: docker volume ls
+      - run: docker run --mount source=datastore,destination=/mnt/volume debian:bullseye-slim dd if=/dev/zero of=/mnt/volume/zero bs=32M count=32
+      - run: docker volume ls
 
 workflows:
-  example-workflow:
+  app-tests:
     jobs:
-      - install
+      - build
