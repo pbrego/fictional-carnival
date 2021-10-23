@@ -4,13 +4,14 @@ orbs:
   node: circleci/node@4.7.0
 
 jobs:
-  build:
+  example-job:
     docker:
-      - image: docker
+      - image: cimg/base:stable
     steps:
-      - run: npm install
-
+      - node/install:
+          install-yarn: true
+          install-npm: false
 workflows:
-  app-tests:
+  example-workflow:
     jobs:
-      - build
+      - example-job
