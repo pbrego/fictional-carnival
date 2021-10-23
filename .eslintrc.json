@@ -1,0 +1,244 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "react",
+    "prettier",
+    "@typescript-eslint",
+    "no-loops",
+    "import",
+    "jest",
+    "jest-dom",
+    "testing-library"
+  ],
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true,
+    "jest/globals": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "arrowFunctions": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": { "extensions": [".ts", ".tsx"], "paths": ["./src"] },
+      "typescript": {
+        "project": "packages/**/tsconfig.json"
+      }
+    }
+  },
+  "globals": {
+    "React": "writable"
+  },
+  "rules": {
+    "import/order": [
+      "error",
+      {
+        "groups": ["external", "internal", "parent", "sibling", "index", "builtin"],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"]
+      }
+    ],
+    "react/no-unknown-property": "off",
+    "comma-dangle": "off",
+    "function-paren-newline": "off",
+    "global-require": "off",
+    "import/no-dynamic-require": "off",
+    "no-inner-declarations": "off",
+    "class-methods-use-this": "off",
+    "import/extensions": "off",
+    "import/prefer-default-export": "off",
+    "import/no-unresolved": [
+      "error",
+      { "ignore": ["date-fns/.*", "antd/.*", "recharts/.*", "rc-picker/.*"] }
+    ],
+    "react/display-name": "error",
+    "react/prop-types": "off",
+    "react/prefer-stateless-function": "error",
+    "no-unused-vars": [
+      "warn",
+      {
+        "args": "none",
+        "argsIgnorePattern": "req|res|next|val"
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "no-loops/no-loops": 2,
+    "jsx-a11y/anchor-is-valid": ["error"],
+    "react/jsx-sort-props": [
+      "warn",
+      {
+        "callbacksLast": true,
+        "shorthandFirst": true,
+        "ignoreCase": true,
+        "noSortAlphabetically": false
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": "**/*.+(ts|tsx)",
+      "rules": {
+        "no-restricted-imports": [
+          "warn",
+          {
+            "paths": [
+              {
+                "name": "antd/lib/button",
+                "message": "Please use Astor Button from P1."
+              },
+              {
+                "name": "antd",
+                "importNames": ["Typography", "Button"],
+                "message": "Please use Astor's components from P1."
+              },
+              {
+                "name": "antd/lib/typography",
+                "message": "Please use Astor Typography from P1."
+              },
+              {
+                "name": "antd/es",
+                "message": "Please avoid antd/es imports, instead use antd/lib to avoid transpilation problems with jest."
+              },
+              {
+                "name": "tekbnk-core",
+                "importNames": ["Icons"],
+                "message": "Please use icons from cyberbank-icons"
+              }
+            ],
+            "patterns": [
+              {
+                "group": [
+                  "antd/lib/typography/Text",
+                  "antd/lib/typography/Title",
+                  "antd/lib/typography/Paragraph"
+                ],
+                "message": "Please use Astor Typography from P1."
+              }
+            ]
+          }
+        ],
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": "error"
+      }
+    },
+    {
+      "files": ["**/__tests__/**/*.+(js|ts)?(x)", "**/*.{spec,test}.+(js|ts)?(x)"],
+      "rules": {
+        "react/display-name": "off",
+
+        "jest/consistent-test-it": "off",
+        "jest/expect-expect": "off",
+        "jest/lowercase-name": "off",
+        "jest/no-alias-methods": "off",
+        "jest/no-commented-out-tests": "warn",
+        "jest/no-conditional-expect": "error",
+        "jest/no-deprecated-functions": "error",
+        "jest/no-disabled-tests": "warn",
+        "jest/no-done-callback": "error",
+        "jest/no-duplicate-hooks": "off",
+        "jest/no-export": "error",
+        "jest/no-focused-tests": "error",
+        "jest/no-hooks": "off",
+        "jest/no-identical-title": "error",
+        "jest/no-if": "error",
+        "jest/no-interpolation-in-snapshots": "error",
+        "jest/no-jasmine-globals": "off",
+        "jest/no-jest-import": "error",
+        "jest/no-large-snapshots": ["warn", { "maxSize": 300 }],
+        "jest/no-mocks-import": "error",
+        "jest/no-restricted-matchers": "off",
+        "jest/no-standalone-expect": "off",
+        "jest/no-test-prefixes": "error",
+        "jest/no-test-return-statement": "off",
+        "jest/no-truthy-falsy": "off",
+        "jest/no-try-expect": "error",
+        "jest/prefer-called-with": "error",
+        "jest/prefer-expect-assertions": "off",
+        "jest/prefer-hooks-on-top": "error",
+        "jest/prefer-inline-snapshots": "off",
+        "jest/prefer-spy-on": "off",
+        "jest/prefer-strict-equal": "off",
+        "jest/prefer-to-be-null": "off",
+        "jest/prefer-to-be-undefined": "off",
+        "jest/prefer-to-contain": "warn",
+        "jest/prefer-to-have-length": "warn",
+        "jest/prefer-todo": "warn",
+        "jest/require-to-throw-message": "off",
+        "jest/require-top-level-describe": "off",
+        "jest/unbound-method": "off",
+        "jest/valid-describe": "error",
+        "jest/valid-expect": "error",
+        "jest/valid-expect-in-promise": "error",
+        "jest/valid-title": "warn",
+
+        "jest-dom/prefer-checked": "error",
+        "jest-dom/prefer-in-document": "error",
+        "jest-dom/prefer-empty": "error",
+        "jest-dom/prefer-enabled-disabled": "error",
+        "jest-dom/prefer-focus": "error",
+        "jest-dom/prefer-required": "error",
+        "jest-dom/prefer-to-have-attribute": "error",
+        "jest-dom/prefer-to-have-style": "error",
+        "jest-dom/prefer-to-have-text-content": "error",
+        "jest-dom/prefer-to-have-value": "error",
+        "jest-dom/prefer-to-have-class": "error",
+
+        "testing-library/await-async-query": "error",
+        "testing-library/await-async-utils": "error",
+        "testing-library/await-fire-event": "off",
+        "testing-library/consistent-data-testid": "off",
+        "testing-library/no-await-sync-events": "error",
+        "testing-library/no-await-sync-query": "error",
+        "testing-library/no-container": "error",
+        "testing-library/no-debug": "error",
+        "testing-library/no-dom-import": ["error", "react"],
+        "testing-library/no-manual-cleanup": "error",
+        "testing-library/no-node-access": "error",
+        "testing-library/no-promise-in-fire-event": "error",
+        "testing-library/no-render-in-setup": "error",
+        "testing-library/no-wait-for-empty-callback": "error",
+        "testing-library/no-wait-for-multiple-assertions": "error",
+        "testing-library/no-wait-for-side-effects": "error",
+        "testing-library/no-wait-for-snapshot": "error",
+        "testing-library/prefer-explicit-assert": "warn",
+        "testing-library/prefer-find-by": "error",
+        "testing-library/prefer-presence-queries": "error",
+        "testing-library/prefer-screen-queries": "error",
+        "testing-library/prefer-user-event": "error",
+        "testing-library/prefer-wait-for": "error",
+        "testing-library/render-result-naming-convention": "error"
+      }
+    }
+  ]
+}
