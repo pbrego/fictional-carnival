@@ -11,6 +11,10 @@ jobs:
       - node/install:
           install-yarn: true
           install-npm: false
+      - node/install-packages:
+          pkg-manager: yarn
+          with-cache: false
+
 workflows:
   example-workflow:
     jobs:
