@@ -17,10 +17,6 @@ jobs:
           app-dir: .
           pkg-manager: yarn
           with-cache: false
-      - node/run:
-          app-dir: ~/project/clients/create-react-app
-          pkg-manager: yarn
-          yarn-run: build
 
 workflows:
   build-workflow:
