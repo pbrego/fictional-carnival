@@ -7,9 +7,9 @@ jobs:
     steps:
       - checkout
       - run
-        name: Install npm dependencies
-        command: |
-          yarn
+          name: Install npm dependencies
+          command: |
+            yarn
 workflows:
   build_install:
     jobs:
