@@ -8,7 +8,7 @@ jobs:
     docker:
       - image: docker
     steps:
-      - run: yarn
+      - run: npm install
 
 workflows:
   app-tests:
