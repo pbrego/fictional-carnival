@@ -6,14 +6,14 @@ orbs:
 jobs:
   install:
     docker:
-      # replace with your preferred image
       - image: cimg/node:17.0.1
     steps:
       - node/install:
-          install-npm: false 
-          install-yarn: true 
+          install-npm: false
+          install-yarn: true
       - node/install-packages:
-          pkg-manager: yarn 
+          app-dir: .
+          pkg-manager: yarn
 
 workflows:
   example-workflow:
