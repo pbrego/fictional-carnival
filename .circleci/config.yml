@@ -14,7 +14,7 @@ jobs:
           install-npm: false
       - node/install-npm
       - node/install-packages:
-          app-dir: ~/
+          app-dir: .
           pkg-manager: yarn
           with-cache: false
 
