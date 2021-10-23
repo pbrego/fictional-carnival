@@ -1,16 +1,21 @@
 version: 2.1
 
+orbs:
+  node: circleci/node@4.7.0
+
 jobs:
   install:
     docker:
-      - image: circleci/node:10
+      # replace with your preferred image
+      - image: cimg/node:17.0.1
     steps:
-      - checkout
-      - run
-          name: Install npm dependencies
-          command: |
-            yarn
+      - node/install:
+          install-npm: false 
+          install-yarn: true 
+      - node/install-packages:
+          pkg-manager: yarn 
+
 workflows:
-  build_install:
+  example-workflow:
     jobs:
       - install
