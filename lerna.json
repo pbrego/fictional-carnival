@@ -1,4 +1,4 @@
 {
-  "packages": ["packages/**"],
-  "version": "independent"
+    "packages": ["libs/**", "clients/**", "modules/**", "server/**"],
+    "version": "independent"
 }
