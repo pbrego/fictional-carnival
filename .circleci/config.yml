@@ -12,7 +12,7 @@ jobs:
           install-npm: false
           install-yarn: true
       - node/install-packages:
-          app-dir: ../
+          app-dir: .
           pkg-manager: yarn
 
 workflows:
