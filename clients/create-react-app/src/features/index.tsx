@@ -1,0 +1,1 @@
+export { UserRegistrationSwitch } from "./UserRegistration";

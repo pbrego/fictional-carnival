@@ -1,0 +1,67 @@
+html {
+    box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+#root > div > header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 20px;
+    color: white;
+    background-color: rebeccapurple;
+}
+
+#root > div > header a {
+    color: inherit;
+}
+#root > div > header a:hover {
+    text-decoration: none;
+}
+
+header > h1,
+header > h2 {
+    margin: 0;
+}
+#root > div > main {
+    padding: 20px;
+}
+#root > div > main > header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+form input {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+form label ~ span {
+    margin-bottom: 4px;
+    color: red;
+}
+form button {
+    margin-top: 16px;
+}
+
+button {
+    background-color: rebeccapurple;
+    color: white;
+    font-family: inherit;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+}
+
+button + h1 {
+    margin-left: 16px;
+}
