@@ -23,14 +23,19 @@ export const InputFirstNamePage = (): JSX.Element => {
                 <label htmlFor="firstName">First name</label>
                 <div>
                     <input
-                        aria-describedby={errors.firstName && "firstNameErrorFeedback"}
+                        aria-required
+                        aria-invalid={errors.firstName ? true : undefined}
                         autoComplete="given-name"
+                        id="firstName"
                         {...register("firstName", { required: true, maxLength: 30 })}
                         defaultValue={values.firstName}
                     />
                 </div>
-                {errors.firstName && errors.firstName.type === "required" && (
-                    <span id="firstNameErrorFeedback">This is required</span>
+                {errors.firstName && (
+                    <span aria-errormessage="firstName">
+                        {errors.firstName.type === "required" && "This is required"}
+                        {errors.firstName.type === "maxLength" && "This is too large"}
+                    </span>
                 )}
             </div>
             <button>Next</button>
