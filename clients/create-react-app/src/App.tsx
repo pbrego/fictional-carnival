@@ -1,20 +1,21 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import { BrowserRouter, Switch } from "react-router-dom";
+import { OuterRoute } from "components";
 
-const App = (): JSX.Element => {
+import { UserRegistrationSwitch } from "features";
+
+import "./styles.css";
+
+export const App = (): JSX.Element => {
     return (
-        <div className="App">
-            <header className="App-header">
-                <img alt="logo" className="App-logo" src={logo} />
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <a className="App-link" href="https://reactjs.org" rel="noopener noreferrer" target="_blank">
-                    Learn React
-                </a>
-            </header>
-        </div>
+        <BrowserRouter>
+            <Switch>
+                <OuterRoute exact path="/">
+                    <h1>Algo</h1>
+                </OuterRoute>
+
+                <UserRegistrationSwitch />
+            </Switch>
+        </BrowserRouter>
     );
 };
 
