@@ -17,6 +17,7 @@ jobs:
           app-dir: .
           pkg-manager: yarn
           with-cache: false
+      - run: npx lerna version patch --yes
 
 workflows:
   build-workflow:
