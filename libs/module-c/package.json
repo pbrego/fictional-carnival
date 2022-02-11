@@ -1,0 +1,10 @@
+{
+  "name": "module-c",
+  "description": "description",
+  "version": "1.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "module-a": "^1.0.1"
+  }
+}
