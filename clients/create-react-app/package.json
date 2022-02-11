@@ -1,6 +1,6 @@
 {
     "name": "create-react-app",
-    "version": "0.1.1",
+    "version": "1.0.0",
     "private": true,
     "scripts": {
         "start": "react-scripts start",
@@ -12,7 +12,7 @@
     },
     "dependencies": {
         "i18next": "^21.3.3",
-        "module-c": "^1.0.1",
+        "module-c": "^1.0.0",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-hook-form": "^7.17.5",
