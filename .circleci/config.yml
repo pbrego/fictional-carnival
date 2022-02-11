@@ -17,6 +17,7 @@ jobs:
           app-dir: .
           pkg-manager: yarn
           with-cache: false
+
   publish:
     steps:
       - run: npx lerna version
@@ -25,3 +26,4 @@ workflows:
   build-workflow:
     jobs:
       - build
+      - publish
