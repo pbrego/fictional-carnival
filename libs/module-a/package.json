@@ -1,5 +1,5 @@
 {
-  "name": "common",
+  "name": "module-a",
   "description": "description",
   "version": "1.0.1",
   "main": "index.js",
